@@ -1,0 +1,17 @@
+.news-nav-li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+
+.news-nav-icon {
+    margin: 0 5px 10px 0;
+    width: 20px;
+    height: 20px;
+}
+
+.nav-info-selected {
+    font-weight: bold;
+}
