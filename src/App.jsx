@@ -1,12 +1,21 @@
 import React from 'react';
 import NewsHome from './views/NewsHome';
 import './App.css';
+import{
+    HashRouter as Router,
+    Routes,
+    Route
+} from 'react-router-dom';
 
 function App () {
     return (
-        <div id = "app">
-            <NewsHome />
-        </div>
+        <Router>
+            <div id = "app">
+                <Routes>
+                    <Route path = '/' exact element = { <NewsHome /> } />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 

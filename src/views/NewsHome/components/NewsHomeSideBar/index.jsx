@@ -2,15 +2,25 @@ import React, {  useEffect }from 'react';
 import './NewsHomeSideBar.css';
 import HomeIcon from '../../../../static/images/home.png';
 import navBarList from './navBarList';
+import {
+    useSearchParams,
+} from 'react-router-dom';
 
 const NewsHomeSideBar = ({
     curNavStatus,
     emitFunc
 }) => {
+    const [ , setSearchParams ] = useSearchParams();
     const newsNavLiClass = id => {
-        return    curNavStatus === id
+        return    curNavStatus.id === id
             ? 'news-nav-li nav-info-selected'
             : 'news-nav-li';
+    };
+    const navLiClickHandler = ({title, id}) => {
+        setSearchParams({
+            category: id
+        });
+        emitFunc({ title, id });
     };
     const navBarLi = navBarList.map(({ title, id }) => (
         <li
@@ -18,7 +28,7 @@ const NewsHomeSideBar = ({
             key = { id }
             onClick = {
                 () => {
-                    emitFunc({ title, id });
+                    navLiClickHandler({title, id});
                 }
             }
         >
@@ -33,7 +43,7 @@ const NewsHomeSideBar = ({
     ));
 
     useEffect(() => {
-        emitFunc(navBarList[0]);
+        navLiClickHandler(navBarList[0]);
     }, []);
 
     return (
