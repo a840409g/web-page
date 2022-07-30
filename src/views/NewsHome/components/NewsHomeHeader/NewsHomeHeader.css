@@ -1,0 +1,34 @@
+#news-home-header-root {
+    display: flex;
+    align-items: center;
+}
+
+.news-logo {
+    margin-right: 40px;
+    width: 200px;
+    height: 100px;
+}
+
+.news-search-input {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 500px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    outline-width: 0;
+}
+
+.news-search-input-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
