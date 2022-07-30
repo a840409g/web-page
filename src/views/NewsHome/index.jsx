@@ -6,7 +6,10 @@ import NewsHomeContent from './components/NewsHomeContent';
 import NewsHomeFooter from './components/NewsHomeFooter';
 
 const NewsHome = () => {
-    const [ curNavStatus, setCurNavStatus ] = useState('');
+    const [ curNavStatus, setCurNavStatus ] = useState({
+        title: '',
+        id: ''
+    });
 
     return (
         <div id = "new-home-root">
