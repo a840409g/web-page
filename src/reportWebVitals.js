@@ -10,7 +10,4 @@ const reportWebVitals = onPerfEntry => {
     }
 };
 
-
-const a = 3;
-
 export default reportWebVitals;
