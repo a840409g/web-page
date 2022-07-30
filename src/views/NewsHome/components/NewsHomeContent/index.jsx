@@ -1,11 +1,19 @@
 import React from 'react';
+import './NewsHomeContent.css';
 
-const NewsHomeContent = () => {
+const NewsHomeContent = ({
+    curNavStatus
+}) => {
     return (
         <div id = "news-home-content-root">
-            NewsHomeContent
+            { curNavStatus.title }
+            { curNavStatus.id}
         </div>
     );
+};
+
+NewsHomeContent.propTypes = {
+    curNavStatus: () => null
 };
 
 export default NewsHomeContent;

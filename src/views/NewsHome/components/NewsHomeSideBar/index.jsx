@@ -1,22 +1,24 @@
-import React, { useState, useEffect }from 'react';
+import React, {  useEffect }from 'react';
 import './NewsHomeSideBar.css';
 import HomeIcon from '../../../../static/images/home.png';
 import navBarList from './navBarList';
 
-const NewsHomeSideBar = () => {
-    const [ curNavStatus, setCurNavStatus ] = useState('');
+const NewsHomeSideBar = ({
+    curNavStatus,
+    emitFunc
+}) => {
     const newsNavLiClass = id => {
         return    curNavStatus === id
             ? 'news-nav-li nav-info-selected'
             : 'news-nav-li';
     };
-    const navBarLi = navBarList.map(({title, id}) => (
+    const navBarLi = navBarList.map(({ title, id }) => (
         <li
             className = { newsNavLiClass(id) }
             key = { id }
             onClick = {
                 () => {
-                    setCurNavStatus(id);
+                    emitFunc({ title, id });
                 }
             }
         >
@@ -31,7 +33,7 @@ const NewsHomeSideBar = () => {
     ));
 
     useEffect(() => {
-        setCurNavStatus(navBarList[0].id);
+        emitFunc(navBarList[0]);
     }, []);
 
     return (
@@ -39,6 +41,11 @@ const NewsHomeSideBar = () => {
             { navBarLi }
         </div>
     );
+};
+
+NewsHomeSideBar.propTypes = {
+    curNavStatus: () => null,
+    emitFunc: () => {}
 };
 
 export default NewsHomeSideBar;

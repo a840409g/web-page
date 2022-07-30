@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NewsHome.css';
 import NewsHomeHeader from './components/NewsHomeHeader';
 import NewsHomeSideBar from './components/NewsHomeSideBar';
@@ -6,12 +6,19 @@ import NewsHomeContent from './components/NewsHomeContent';
 import NewsHomeFooter from './components/NewsHomeFooter';
 
 const NewsHome = () => {
+    const [ curNavStatus, setCurNavStatus ] = useState('');
+
     return (
         <div id = "new-home-root">
             <NewsHomeHeader />
             <div className = "new-home-middle-container">
-                <NewsHomeSideBar />
-                <NewsHomeContent />
+                <NewsHomeSideBar
+                    curNavStatus = { curNavStatus }
+                    emitFunc = { setCurNavStatus }
+                />
+                <NewsHomeContent
+                    curNavStatus = { curNavStatus }
+                />
             </div>
             <NewsHomeFooter />
         </div>
