@@ -2,10 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-right: 5px;
+    margin: 0 5px 10px 0;
     width: calc(95% / 3);
     height: 300px;
-
 }
 
 .news-content-card-top {

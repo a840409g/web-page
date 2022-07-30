@@ -1,7 +1,14 @@
 #new-home-root {
+    display: flex;
+    flex-direction: column;
     padding: 50px;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .new-home-middle-container {
     display: flex;
+    height: fill-available;
+    overflow: hidden;
 }
