@@ -11,16 +11,19 @@ const NewsHomeSideBar = ({
     emitFunc
 }) => {
     const [ , setSearchParams ] = useSearchParams();
+    // 導覽列表active class
     const newsNavLiClass = id => {
         return    curNavStatus.id === id
             ? 'news-nav-li nav-info-selected'
             : 'news-nav-li';
     };
+    // 導覽列表圖片active class
     const newsNavImgClass = id => {
         return curNavStatus.id === id
             ? 'news-nav-icon nav-img-selected'
             : 'news-nav-icon';
     };
+    // 導覽列表點擊邏輯
     const navLiClickHandler = ({title, id}) => {
         setSearchParams({
             category: id
@@ -46,7 +49,7 @@ const NewsHomeSideBar = ({
             </p>
         </li>
     ));
-
+    // mount時點選當前導覽列表第一項
     useEffect(() => {
         navLiClickHandler(navBarList[0]);
     }, []);

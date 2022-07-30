@@ -18,7 +18,7 @@ const NewsHomeContent = ({
             publishTime = { props.publishedAt }
         />
     ));
-
+    // 取新聞資料
     useEffect(() => {
         const fetchNewsData = async () => {
             const { articles } = await (await axios.get(newsApi)).data;

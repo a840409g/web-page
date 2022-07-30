@@ -7,7 +7,9 @@ const NewsContentCard = ({
     bannerUrl = '',
     publishTime = '',
 }) => {
+    // 分出新聞標題跟出版社
     const [ newsTitle, newsPublisher ] = publishInfo.split('-');
+    // 取得報導經過時間
     const publishTimeMinText = () => {
         const publishTimeDiffWithCurTime = moment().diff(publishTime, 'minutes');
         let timeTextPrefix = '';
@@ -29,6 +31,7 @@ const NewsContentCard = ({
 
     return (
         <div id = "news-content-card-root">
+            {/* 新聞圖片與標題區塊 */}
             <div className = "news-content-card-top">
                 <img
                     src = { bannerUrl }
@@ -39,6 +42,7 @@ const NewsContentCard = ({
                     {newsTitle}
                 </h3>
             </div>
+            {/* 出版社資訊與經過時間 */}
             <div className = "news-content-card-public-info">
                 <p className = "news-content-card-publisher">
                     {newsPublisher}
