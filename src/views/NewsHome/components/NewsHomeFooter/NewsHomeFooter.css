@@ -1,0 +1,14 @@
+#news-home-footer-root {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-info-wrap {
+    display: flex;
+    padding: 0;
+}
+
+.footer-info-li {
+    margin-right: 10px;
+    list-style: none;
+}
