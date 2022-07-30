@@ -9,6 +9,14 @@ const NewsHomeContent = ({
     curNavStatus
 }) => {
     const [ newsData, setNewsData ] = useState([]);
+    const newsContentCardMap = newsData.map(props => (
+        <NewsContentCard
+            key = { props.title }
+            publishInfo = { props.title }
+            bannerUrl = { props.urlToImage }
+            publishTime = { props.publishedAt }
+        />
+    ));
 
     useEffect(() => {
         const fetchNewsData = async () => {
@@ -17,13 +25,11 @@ const NewsHomeContent = ({
             setNewsData(articles);
         };
 
-        // fetchNewsData();
+        fetchNewsData();
     }, []);
 
     return (
         <div id = "news-home-content-root">
-            { curNavStatus.title }
-            { curNavStatus.id}
             <div className = "new-home-content-header">
                 <p className = "cur-nav-title">
                     { curNavStatus.title }
@@ -33,6 +39,7 @@ const NewsHomeContent = ({
                 </p>
             </div>
             <div className = "news-home-content-wrap">
+                { newsContentCardMap }
             </div>
         </div>
     );
