@@ -16,6 +16,11 @@ const NewsHomeSideBar = ({
             ? 'news-nav-li nav-info-selected'
             : 'news-nav-li';
     };
+    const newsNavImgClass = id => {
+        return curNavStatus.id === id
+            ? 'news-nav-icon nav-img-selected'
+            : 'news-nav-icon';
+    };
     const navLiClickHandler = ({title, id}) => {
         setSearchParams({
             category: id
@@ -34,7 +39,7 @@ const NewsHomeSideBar = ({
         >
             <img
                 src = { HomeIcon }
-                className = "news-nav-icon"
+                className = { newsNavImgClass(id) }
             />
             <p className = "news-nav-text">
                 { title }

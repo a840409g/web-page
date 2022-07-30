@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 0 5px 10px 0;
-    width: calc(95% / 3);
     height: 300px;
 }
 
@@ -32,4 +31,16 @@
 
 .news-content-card-publisher {
     font-size: 12px;
+}
+
+@media screen and (min-width: 721px) {
+  #news-content-card-root {
+      width: calc(95% / 3);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #news-content-card-root {
+      width: calc(95% / 2);
+  }
 }

@@ -10,8 +10,19 @@
     margin: 0 5px 10px 0;
     width: 20px;
     height: 20px;
+    transition-duration: .3s;
 }
 
 .nav-info-selected {
     font-weight: bold;
+}
+
+.nav-img-selected {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 720px) {
+  .news-nav-text {
+      display: none;
+  }
 }
