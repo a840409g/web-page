@@ -10,7 +10,8 @@ const NewsHomeSideBar = ({
     curNavStatus,
     emitFunc
 }) => {
-    const [ , setSearchParams ] = useSearchParams();
+    // const [ searchParams, setSearchParams ] = useSearchParams();
+    const [ searchParams, setSearchParams ] = useSearchParams();
     // 導覽列表active class
     const newsNavLiClass = id => {
         return    curNavStatus.id === id
@@ -49,9 +50,15 @@ const NewsHomeSideBar = ({
             </p>
         </li>
     ));
-    // mount時點選當前導覽列表第一項
+    // mount時根據當前url query決定目前點選類別
     useEffect(() => {
-        navLiClickHandler(navBarList[0]);
+        const curNavIdByUrlQuery = searchParams.get('category');
+        // 若無則取導覽列表第一項
+        const defaultNavStatus = curNavIdByUrlQuery
+            ? navBarList.find(info => info.id === curNavIdByUrlQuery)
+            : navBarList[0];
+
+        navLiClickHandler(defaultNavStatus);
     }, []);
 
     return (
